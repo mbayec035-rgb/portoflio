@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cheikh Mbaye | Web Developer &amp; Cybersecurity Enthusiast</title>
+    <meta
+      name="description"
+      content="Portfolio de Cheikh Mbaye, étudiant en développement d'applications et passionné par le développement web, les réseaux, l'intelligence artificielle et la cybersécurité."
+    />
+    <meta
+      name="keywords"
+      content="Cheikh Mbaye, développeur web, cybersécurité, réseaux, portfolio, full-stack"
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Cheikh Mbaye | Web Developer & Cybersecurity Enthusiast"
+    />
+    <meta
+      property="og:description"
+      content="Je transforme des idées en expériences numériques modernes, sécurisées et performantes."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/profile.jpg" />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23050505'/%3E%3Ctext x='50' y='68' font-size='60' fill='%2300ff88' text-anchor='middle' font-family='monospace'%3E%3C/%3E%3C/text%3E%3C/svg%3E"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme") || "light";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- ============ PRELOADER ============ -->
+    <div id="preloader" aria-hidden="true">
+      <div class="preloader-inner">
+        <div class="preloader-logo">&lt;CM/&gt;</div>
+        <div class="preloader-line" id="preloaderLine">
+          INITIALIZING SYSTEM...
+        </div>
+        <div class="preloader-bar"><span id="preloaderBarFill"></span></div>
+      </div>
+    </div>
+
+    <!-- ============ FOND CYBER GLOBAL ============ -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <div class="scanline" aria-hidden="true"></div>
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="floating-codes" id="floatingCodes" aria-hidden="true"></div>
+
+    <!-- curseur personnalisé -->
+    <div class="cyber-cursor" id="cyberCursor" aria-hidden="true"></div>
+
+    <!-- ============ NAVBAR ============ -->
+    <header class="navbar" id="navbar">
+      <div class="navbar-inner">
+        <a href="#accueil" class="logo">&lt;CM/&gt;</a>
+
+        <nav class="nav-links" id="navLinks">
+          <a href="#accueil" class="nav-link active">Accueil</a>
+          <a href="#apropos" class="nav-link">À propos</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#experience" class="nav-link">Expérience</a>
+          <a href="#projets" class="nav-link">Projets</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Activer le mode sombre"
+            title="Mode sombre"
+          >
+            <svg
+              class="icon-moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg
+              class="icon-sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+
+          <button
+            class="burger"
+            id="burgerBtn"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="navLinks"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ HERO ============ -->
+      <section class="hero" id="accueil">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <p class="hero-tag">
+              <span class="dot"></span> <span id="typingSystem"></span>
+            </p>
+            <h1 class="hero-title">
+              Je suis Cheikh Tidiane Mbaye<br />
+              <span class="neon" id="typingTitle"></span>
+            </h1>
+            <p class="hero-desc">
+              Étudiant en développement d'applications, passionné par le code,
+              les réseaux, l'intelligence artificielle et la cybersécurité.
+            </p>
+            <div class="hero-actions">
+              <a href="#projets" class="btn btn-primary">VOIR MES PROJETS</a>
+              <a href="#contact" class="btn btn-outline">ME CONTACTER</a>
+            </div>
+            <p class="hero-status">
+              <span class="pulse-dot"></span> AVAILABLE FOR PROJECTS
+            </p>
+          </div>
+
+          <div class="hero-visual">
+            <div class="profile-frame">
+              <div class="profile-ring"></div>
+              <div class="profile-ring ring-2"></div>
+              <img
+                src="assets/profile.jpg"
+                alt="Photo de profil de Cheikh Mbaye"
+                class="profile-img"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.classList.add('img-fallback');
+                "
+              />
+              <div class="hud-label hud-top">SYSTEM // PROFILE</div>
+              <div class="hud-label hud-bottom">
+                SECURITY LEVEL: <span class="neon-text">ACTIVE</span>
+              </div>
+              <span class="hud-num hud-num-1">01</span>
+              <span class="hud-num hud-num-2">010101</span>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-cue" aria-hidden="true"><span></span></div>
+      </section>
+
+      <!-- ============ BANDEAU CHIFFRES DÉFILANTS ============ -->
+      <div class="digits-ticker" id="digitsTicker" aria-hidden="true">
+        <div class="digits-track" id="digitsTrack"></div>
+      </div>
+
+      <!-- ============ À PROPOS ============ -->
+      <section class="section" id="apropos">
+        <div class="section-inner">
+          <h2 class="section-title">WHO AM I?</h2>
+
+          <div class="about-grid">
+            <p class="about-text">
+              Je suis <strong>Cheikh Mbaye</strong>, étudiant passionné par les
+              technologies numériques et le développement d'applications. Je
+              m'intéresse particulièrement au développement web, aux réseaux, à
+              l'intelligence artificielle et à la cybersécurité. <br /><br />
+              Mon objectif est de développer des solutions modernes, utiles et
+              sécurisées tout en continuant à renforcer mes compétences
+              techniques.
+            </p>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <span class="stat-num" data-target="1" data-suffix="+">0</span>
+                <span class="stat-label">Année d'apprentissage</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-num" data-target="10" data-suffix="+">0</span>
+                <span class="stat-label">Technologies explorées</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-num" data-target="5" data-suffix="+">0</span>
+                <span class="stat-label">Projets réalisés</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-num stat-infinite">∞</span>
+                <span class="stat-label">Curiosité</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SERVICES ============ -->
+      <section class="section" id="services">
+        <div class="section-inner">
+          <h2 class="section-title">MY SERVICES</h2>
+
+          <div class="cards-grid">
+            <article class="cyber-card">
+              <span class="card-num">01</span>
+              <div class="card-icon" aria-hidden="true">&#9670;</div>
+              <h3>DEVELOPMENT WEB</h3>
+              <p>Création de sites web modernes, responsive et performants.</p>
+              <a href="#projets" class="card-link">EXPLORE &gt;</a>
+            </article>
+
+            <article class="cyber-card">
+              <span class="card-num">02</span>
+              <div class="card-icon" aria-hidden="true">&#9633;</div>
+              <h3>APPLICATION DEVELOPMENT</h3>
+              <p>
+                Développement d'applications et de solutions numériques adaptées
+                aux besoins des utilisateurs.
+              </p>
+              <a href="#projets" class="card-link">EXPLORE &gt;</a>
+            </article>
+
+            <article class="cyber-card">
+              <span class="card-num">03</span>
+              <div class="card-icon" aria-hidden="true">&#9671;</div>
+              <h3>UI / UX</h3>
+              <p>
+                Création d'interfaces modernes, intuitives et orientées
+                expérience utilisateur.
+              </p>
+              <a href="#projets" class="card-link">EXPLORE &gt;</a>
+            </article>
+
+            <article class="cyber-card">
+              <span class="card-num">04</span>
+              <div class="card-icon" aria-hidden="true">&#128274;</div>
+              <h3>CYBERSECURITY</h3>
+              <p>
+                Apprentissage et mise en pratique des principes de sécurité
+                informatique, protection des systèmes et bonnes pratiques.
+              </p>
+              <a href="#projets" class="card-link">EXPLORE &gt;</a>
+            </article>
+
+            <article class="cyber-card">
+              <span class="card-num">05</span>
+              <div class="card-icon" aria-hidden="true">&#8982;</div>
+              <h3>NETWORKING</h3>
+              <p>
+                Configuration, compréhension et administration des réseaux
+                informatiques.
+              </p>
+              <a href="#projets" class="card-link">EXPLORE &gt;</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TECH STACK ============ -->
+      <section class="section" id="stack">
+        <div class="section-inner">
+          <h2 class="section-title">TECH STACK</h2>
+          <div class="stack-grid" id="stackGrid">
+            <span class="stack-badge">HTML5</span>
+            <span class="stack-badge">CSS3</span>
+            <span class="stack-badge">JavaScript</span>
+            <span class="stack-badge">PHP</span>
+            <span class="stack-badge">MySQL</span>
+            <span class="stack-badge">Python</span>
+            <span class="stack-badge">Pascal</span>
+            <span class="stack-badge">Git</span>
+            <span class="stack-badge">GitHub</span>
+            <span class="stack-badge">Linux</span>
+            <span class="stack-badge">Cisco</span>
+            <span class="stack-badge">React</span>
+            <span class="stack-badge">UI/UX</span>
+            <span class="stack-badge">Cybersecurity</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ EXPÉRIENCE ============ -->
+      <section class="section" id="experience">
+        <div class="section-inner">
+          <h2 class="section-title">EXPERIENCE // JOURNEY</h2>
+
+          <ul class="timeline">
+            <li class="timeline-item">
+              <span class="timeline-log">[2026] SYSTEM UPDATE</span>
+              <h3>Développement web &amp; applications</h3>
+              <p>
+                Approfondissement du développement web, JavaScript, Git/GitHub
+                et développement d'applications.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-log">[2026] NETWORK MODULE</span>
+              <h3>Cybersécurité &amp; réseaux</h3>
+              <p>
+                Exploration des réseaux, systèmes, protocoles et principes
+                fondamentaux de la cybersécurité.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-log">[2025] PROJECT INITIALIZED</span>
+              <h3>Digital &amp; projets personnels</h3>
+              <p>
+                Création de projets numériques et participation à des
+                initiatives technologiques.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ PROJETS ============ -->
+      <section class="section" id="projets">
+        <div class="section-inner">
+          <h2 class="section-title">PROJECTS // DATABASE</h2>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <div
+                class="project-img"
+                style="background-image: url(&quot;assets/project1.jpg&quot;)"
+              >
+                <span class="project-tag">01</span>
+              </div>
+              <div class="project-body">
+                <h3>COSKAS IMPACT</h3>
+                <p>
+                  Plateforme numérique développée autour de l'impact
+                  communautaire, de la technologie et de l'expérience
+                  utilisateur.
+                </p>
+                <div class="project-tech">
+                  <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                </div>
+                <div class="project-actions">
+                  <a href="#" class="btn-mini">VIEW PROJECT</a>
+                  <a href="#" class="btn-mini btn-mini-outline">GitHub</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div
+                class="project-img"
+                style="background-image: url(&quot;assets/project2.jpg&quot;)"
+              >
+                <span class="project-tag">02</span>
+              </div>
+              <div class="project-body">
+                <h3>SMART TIVAOUANE</h3>
+                <p>
+                  Concept d'assistant numérique destiné à faciliter la
+                  découverte de Tivaouane et l'orientation des visiteurs.
+                </p>
+                <div class="project-tech">
+                  <span>React</span><span>IA</span><span>UX</span>
+                </div>
+                <div class="project-actions">
+                  <a href="#" class="btn-mini">VIEW PROJECT</a>
+                  <a href="#" class="btn-mini btn-mini-outline">GitHub</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div
+                class="project-img"
+                style="background-image: url(&quot;assets/project3.jpg&quot;)"
+              >
+                <span class="project-tag">03</span>
+              </div>
+              <div class="project-body">
+                <h3>WEB PROJECT</h3>
+                <p>Projet web moderne développé en HTML, CSS et JavaScript.</p>
+                <div class="project-tech">
+                  <span>HTML</span><span>CSS</span><span>JS</span>
+                </div>
+                <div class="project-actions">
+                  <a href="#" class="btn-mini">VIEW PROJECT</a>
+                  <a href="#" class="btn-mini btn-mini-outline">GitHub</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div
+                class="project-img"
+                style="background-image: url(&quot;assets/project4.jpg&quot;)"
+              >
+                <span class="project-tag">04</span>
+              </div>
+              <div class="project-body">
+                <h3>CYBER LAB</h3>
+                <p>
+                  Espace expérimental consacré à l'apprentissage des réseaux,
+                  systèmes et principes de cybersécurité.
+                </p>
+                <div class="project-tech">
+                  <span>Linux</span><span>Réseaux</span><span>Sécurité</span>
+                </div>
+                <div class="project-actions">
+                  <a href="#" class="btn-mini">VIEW PROJECT</a>
+                  <a href="#" class="btn-mini btn-mini-outline">GitHub</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section class="section" id="contact">
+        <div class="section-inner">
+          <h2 class="section-title">ESTABLISH CONNECTION</h2>
+          <p class="contact-intro">
+            Vous avez un projet, une idée ou une collaboration à proposer ?
+            Initialisons une connexion.
+          </p>
+
+          <div class="contact-grid">
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="name">Nom</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  autocomplete="name"
+                  required
+                />
+                <span class="error-msg" id="errName"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                />
+                <span class="error-msg" id="errEmail"></span>
+              </div>
+              <div class="form-group">
+                <label for="subject">Sujet</label>
+                <input type="text" id="subject" name="subject" required />
+                <span class="error-msg" id="errSubject"></span>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
+                <span class="error-msg" id="errMessage"></span>
+              </div>
+              <button type="submit" class="btn btn-primary full-width">
+                SEND MESSAGE &gt;
+              </button>
+              <p
+                class="form-success"
+                id="formSuccess"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </form>
+
+            <div class="contact-side">
+              <div class="terminal">
+                <div class="terminal-bar">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="terminal-body" id="terminalBody">
+                  <p>&gt; connection established...</p>
+                  <p>&gt; waiting for message...</p>
+                  <p>&gt; status: <span class="neon-text">ONLINE</span></p>
+                </div>
+              </div>
+
+              <ul class="contact-links">
+                <li>
+                  <span class="contact-label">Email</span
+                  ><a href="mailto:contact@cheikhmbaye.dev"
+                    >contact@cheikhmbaye.dev</a
+                  >
+                </li>
+                <li>
+                  <span class="contact-label">GitHub</span
+                  ><a href="#" target="_blank" rel="noopener"
+                    >github.com/cheikhmbaye</a
+                  >
+                </li>
+                <li>
+                  <span class="contact-label">LinkedIn</span
+                  ><a href="#" target="_blank" rel="noopener"
+                    >linkedin.com/in/cheikhmbaye</a
+                  >
+                </li>
+                <li>
+                  <span class="contact-label">Instagram</span
+                  ><a href="#" target="_blank" rel="noopener">@cheikhmbaye</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-logo">&lt;CM/&gt;</div>
+        <p class="footer-name">CHEIKH MBAYE</p>
+        <p class="footer-tag">BUILD • SECURE • INNOVATE</p>
+        <p class="footer-copy">
+          ©️ 2026 Cheikh Mbaye — All systems operational.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+I’m
